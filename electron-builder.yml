@@ -1,0 +1,55 @@
+appId: 'fr.nyga.launcher'
+productName: 'Nyga Launcher'
+artifactName: '${productName}-setup-${version}.${ext}'
+
+copyright: 'Copyright © 2026 Nyga'
+
+asar: true
+compression: 'maximum'
+
+files:
+  - '!{dist,.gitignore,.vscode,docs,dev-app-update.yml,.nvmrc,eslint.config.mjs}'
+
+extraResources:
+  - 'libraries'
+
+# Windows
+win:
+  icon: '../NygaLauncher.ico'
+  target:
+    - target: 'nsis'
+      arch: 'x64'
+
+# Installateur Windows
+nsis:
+  oneClick: false
+  perMachine: false
+  allowElevation: true
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: 'Nyga Launcher'
+
+# macOS
+mac:
+  target:
+    - target: 'dmg'
+      arch:
+        - 'x64'
+        - 'arm64'
+  artifactName: '${productName}-setup-${version}-${arch}.${ext}'
+  category: 'public.app-category.games'
+
+# Linux
+linux:
+  target: 'AppImage'
+  icon: '../NygaLauncherLogo.png'
+  maintainer: 'Nyga'
+  vendor: 'Nyga'
+  synopsis: 'Launcher Minecraft de Nyga'
+  description: 'Launcher Minecraft personnalisé permettant de rejoindre les serveurs Nyga.'
+  category: 'Game'
+
+directories:
+  buildResources: 'build'
+  output: 'dist'
