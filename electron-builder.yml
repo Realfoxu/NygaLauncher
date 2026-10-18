@@ -1,8 +1,8 @@
-appId: 'helioslauncher'
-productName: 'Helios Launcher'
+appId: 'fr.nyga.launcher'
+productName: 'Nyga Launcher'
 artifactName: '${productName}-setup-${version}.${ext}'
 
-copyright: 'Copyright © 2018-2026 Daniel Scalzi'
+copyright: 'Copyright © 2026 Nyga'
 
 asar: true
 compression: 'maximum'
@@ -13,20 +13,24 @@ files:
 extraResources:
   - 'libraries'
 
-# Windows Configuration
-win: 
-  target: 
+# Windows
+win:
+  icon: '../NygaLauncher.ico'
+  target:
     - target: 'nsis'
       arch: 'x64'
 
-# Windows Installer Configuration
+# Installateur Windows
 nsis:
   oneClick: false
   perMachine: false
   allowElevation: true
   allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: 'Nyga Launcher'
 
-# macOS Configuration
+# macOS
 mac:
   target:
     - target: 'dmg'
@@ -36,15 +40,15 @@ mac:
   artifactName: '${productName}-setup-${version}-${arch}.${ext}'
   category: 'public.app-category.games'
 
-# Linux Configuration
-linux: 
+# Linux
+linux:
   target: 'AppImage'
-  maintainer: 'Daniel Scalzi'
-  vendor: 'Daniel Scalzi'
-  synopsis: 'Modded Minecraft Launcher'
-  description: 'Custom launcher which allows users to join modded servers. All mods, configurations, and updates are handled automatically.'
+  icon: '../NygaLauncherLogo.png'
+  maintainer: 'Nyga'
+  vendor: 'Nyga'
+  synopsis: 'Launcher Minecraft de Nyga'
+  description: 'Launcher Minecraft personnalisé permettant de rejoindre les serveurs Nyga.'
   category: 'Game'
-
 
 directories:
   buildResources: 'build'

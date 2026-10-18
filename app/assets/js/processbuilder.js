@@ -750,11 +750,11 @@ class ProcessBuilder {
 
                         // Extract the file.
                         if(!shouldExclude){
-                            fs.writeFile(path.join(tempNativePath, fileName), zipEntries[i].getData(), (err) => {
-                                if(err){
-                                    logger.error('Error while extracting native library:', err)
-                                }
-                            })
+                            try {
+                            fs.writeFileSync(path.join(tempNativePath, fileName), zipEntries[i].getData())
+                        } catch(err) {
+                            logger.error('Error while extracting native library:', err)
+                        }
                         }
 
                     }
@@ -801,11 +801,12 @@ class ProcessBuilder {
 
                         // Extract the file.
                         if(!shouldExclude){
-                            fs.writeFile(path.join(tempNativePath, extractName), zipEntries[i].getData(), (err) => {
-                                if(err){
-                                    logger.error('Error while extracting native library:', err)
-                                }
-                            })
+                            try {
+                            fs.ensureDirSync(path.join(tempNativePath, 'java'))
+                            fs.writeFileSync(path.join(tempNativePath, 'java', extractName), zipEntries[i].getData())
+                        } catch(err) {
+                            logger.error('Error while extracting native library:', err)
+                        }
                         }
 
                     }
@@ -890,3 +891,4 @@ class ProcessBuilder {
 }
 
 module.exports = ProcessBuilder
+

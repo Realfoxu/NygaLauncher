@@ -1,15 +1,15 @@
 {
-  "name": "helioslauncher",
+  "name": "nygalauncher",
   "version": "2.2.1",
-  "productName": "Helios Launcher",
-  "description": "Modded Minecraft Launcher",
-  "author": "Daniel Scalzi (https://github.com/dscalzi/)",
-  "license": "UNLICENSED",
-  "homepage": "https://github.com/dscalzi/HeliosLauncher",
+  "productName": "Nyga Launcher",
+  "description": "Launcher Minecraft personnalisé pour la communauté Nyga, basé sur Helios Launcher",
+  "author": "Nyga contributors",
+  "license": "MIT",
+  "homepage": "https://github.com/Realfoxu/NygaLauncher",
   "bugs": {
-    "url": "https://github.com/dscalzi/HeliosLauncher/issues"
+    "url": "https://github.com/Realfoxu/NygaLauncher/issues"
   },
-  "private": true,
+  "private": false,
   "main": "index.js",
   "scripts": {
     "start": "electron .",
@@ -45,8 +45,8 @@
     "electron-builder": "^26.4.0",
     "eslint": "^9.39.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dscalzi/HeliosLauncher.git"
-  }
+ "repository": {
+   "type": "git",
+   "url": "git+https://github.com/Realfoxu/NygaLauncher.git"
+ }
 }

@@ -4,3 +4,8 @@
 /target/
 /logs/
 /dist/
+# Fichiers temporaires et sauvegardes locales
+*.bak
+*.bak2
+*.swp
+*~
