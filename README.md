@@ -1,0 +1,2 @@
+# NygaLauncher
+Launcher for NygaMC
