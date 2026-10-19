@@ -1,0 +1,46 @@
+name: Build Nyga Launcher
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build for ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            label: Windows
+          - os: ubuntu-latest
+            label: Linux
+          - os: macos-latest
+            label: macOS
+
+    steps:
+      - name: Get source code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build launcher
+        run: npx electron-builder --publish never
+
+      - name: Upload build files
+        uses: actions/upload-artifact@v4
+        with:
+          name: Nyga-Launcher-${{ matrix.label }}
+          path: dist/*
+          if-no-files-found: error
