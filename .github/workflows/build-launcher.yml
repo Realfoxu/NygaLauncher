@@ -2,6 +2,9 @@ name: Build Nyga Launcher
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - nyga-release
 
 permissions:
   contents: read
